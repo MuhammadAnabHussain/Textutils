@@ -1,15 +1,18 @@
 import React, { useState } from "react";
+
 export default function (props) {
   const [text, settext] = useState("");
   const handleUpperCase = () => {
     // console.log("upper case was clicked");
     let newText = text.toUpperCase();
     settext(newText);
+    props.showAlert("converted to Upper Case!", "success");
   };
   const handleLowerCase = () => {
     // console.log("Lower case was clicked");
     let newText = text.toLowerCase();
     settext(newText);
+    props.showAlert("converted to Lower Case!", "success");
   };
   const handlefirstletter = () => {
     const words = text.split(" ");
@@ -22,11 +25,13 @@ export default function (props) {
     });
     const capitalizedText = capitalizedWords.join(" ");
     settext(capitalizedText);
+    props.showAlert("first character of every word is capital!", "success");
   };
   const handleClearCase = () => {
     // console.log("Clear case was clicked");
     let newText = "";
     settext(newText);
+    props.showAlert("all text is clear!", "success");
   };
   const handleOnChanged = (event) => {
     // console.log("on change");
