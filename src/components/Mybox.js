@@ -1,6 +1,14 @@
 import React, { useState } from "react";
 
 export default function (props) {
+  const countWords = (inputString) => {
+    var wordsArray = inputString.trim().split(/\s+/);
+    var wordCount = wordsArray.filter(function (word) {
+      return word !== "";
+    }).length;
+    return wordCount;
+  };
+
   const [text, settext] = useState("");
   const handleUpperCase = () => {
     // console.log("upper case was clicked");
@@ -42,7 +50,9 @@ export default function (props) {
     <>
       <div
         className="container "
-        style={{ color: props.mode === "dark" ? "white" : "black" }}
+        style={{
+          color: props.mode === "dark" ? "white" : "black",
+        }}
       >
         <h1>{props.heading}</h1>
         <div className="mb-3">
@@ -54,21 +64,33 @@ export default function (props) {
             rows="10"
             style={{
               color: props.mode === "dark" ? "white" : "dark",
-              backgroundColor: props.mode === "dark" ? "#588cc1" : "white",
+              backgroundColor: props.mode === "dark" ? "#c7d4e0d4" : "white",
             }}
           ></textarea>
         </div>
 
-        <button className="btn btn-primary mx-2" onClick={handleUpperCase}>
+        <button
+          className={`btn btn-${props.btnMode} mx-2`}
+          onClick={handleUpperCase}
+        >
           Convert to uppercase
         </button>
-        <button className="btn btn-primary mx-2" onClick={handleLowerCase}>
+        <button
+          className={`btn btn-${props.btnMode} mx-2`}
+          onClick={handleLowerCase}
+        >
           Convert to lowercase
         </button>
-        <button className="btn btn-primary mx-2" onClick={handleClearCase}>
+        <button
+          className={`btn btn-${props.btnMode} mx-2`}
+          onClick={handleClearCase}
+        >
           Clear Text
         </button>
-        <button className="btn btn-primary mx-2" onClick={handlefirstletter}>
+        <button
+          className={`btn btn-${props.btnMode} mx-2`}
+          onClick={handlefirstletter}
+        >
           Capitalize
         </button>
       </div>
@@ -78,7 +100,7 @@ export default function (props) {
       >
         <h2>your summary</h2>
         <p>
-          <big>{text.split(" ").length} words</big>
+          <big>{countWords(text)} words</big>
         </p>
         <p>
           <big>{text.length} characters</big>

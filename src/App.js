@@ -6,8 +6,9 @@ import React, { useState } from "react";
 import Alert from "./components/Alert";
 
 function App() {
-  const [mode, setmode] = useState("light"); //whether dark mode is enabled or not
+  const [mode, setMode] = useState("light"); //whether dark mode is enabled or not
   const [alert, setAlert] = useState(null);
+  const [btnMode, setBtnMode] = useState("primary");
   const showAlert = (message, type) => {
     setAlert({
       msg: message,
@@ -17,15 +18,43 @@ function App() {
       setAlert(null);
     }, 1000);
   };
-  const toggleMode = () => {
+
+  const darkToggleMode = () => {
     if (mode === "light") {
-      setmode("dark");
+      setMode("dark");
+
       document.body.style.backgroundColor = "#112c54";
-      showAlert("dark mode has been enabled", "success");
+      showAlert("Dark mode has been enabled", "success");
     } else {
-      setmode("light");
+      setMode("light");
       document.body.style.backgroundColor = "white";
-      showAlert("light mode has been enabled", "success");
+      showAlert("Light mode has been enabled", "success");
+    }
+  };
+
+  const greenToggleMode = () => {
+    if (mode === "light") {
+      setMode("dark");
+      setBtnMode("success");
+      document.body.style.backgroundColor = "#347a5a";
+      showAlert("green mode has been enabled", "success");
+    } else {
+      setMode("light");
+      document.body.style.backgroundColor = "white";
+      showAlert("Light mode has been enabled", "success");
+    }
+  };
+
+  const redToggleMode = () => {
+    if (mode === "light") {
+      setMode("dark");
+      setBtnMode("danger");
+      document.body.style.backgroundColor = "#762028";
+      showAlert("red mode has been enabled", "success");
+    } else {
+      setMode("light");
+      document.body.style.backgroundColor = "white";
+      showAlert("Light mode has been enabled", "success");
     }
   };
   return (
@@ -34,8 +63,10 @@ function App() {
         title="textutils"
         homeText="Home"
         aboutText="About us"
-        mode={mode} //whether dark mode or light mode
-        toggleMode={toggleMode}
+        mode={mode} //whether mode is dark or not
+        darkToggleMode={darkToggleMode}
+        greenToggleMode={greenToggleMode}
+        redToggleMode={redToggleMode}
       />
       <Alert alert={alert} />
       <div className="container my-3">
@@ -43,6 +74,7 @@ function App() {
           heading="Enter the text to Analyze Below "
           mode={mode}
           showAlert={showAlert}
+          btnMode={btnMode}
         />
         {/* <AboutUs /> */}
       </div>

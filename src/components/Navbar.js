@@ -53,15 +53,50 @@ export default function Navbar(props) {
             props.mode === "light" ? "dark" : "light"
           }`}
         >
+          {/* this switch is for Dark mode */}
           <input
             className="form-check-input"
             type="checkbox"
             role="switch"
             id="flexSwitchCheckDefault"
-            onClick={props.toggleMode}
+            onClick={props.darkToggleMode}
           />
           <label className="form-check-label " htmlFor="flexSwitchCheckDefault">
             dark
+          </label>
+        </div>
+        <div
+          className={`form-check form-switch text-${
+            props.mode === "light" ? "green" : "light"
+          }`}
+        >
+          {/* this switch is for green mode */}
+          <input
+            className="form-check-input"
+            type="checkbox"
+            role="switch"
+            id="flexSwitchCheckDefault"
+            onClick={props.greenToggleMode}
+          />
+          <label className="form-check-label " htmlFor="flexSwitchCheckDefault">
+            Green
+          </label>
+        </div>
+        <div
+          className={`form-check form-switch text-${
+            props.mode === "light" ? "red" : "light"
+          }`}
+        >
+          {/* this switch is for red mode */}
+          <input
+            className="form-check-input"
+            type="checkbox"
+            role="switch"
+            id="flexSwitchCheckDefault"
+            onClick={props.redToggleMode}
+          />
+          <label className="form-check-label " htmlFor="flexSwitchCheckDefault">
+            Red
           </label>
         </div>
       </nav>
