@@ -70,25 +70,25 @@ export default function (props) {
         </div>
 
         <button
-          className={`btn btn-${props.btnMode} mx-2`}
+          className={`btn btn-${props.btnMode} mx-2 my-2`}
           onClick={handleUpperCase}
         >
           Convert to uppercase
         </button>
         <button
-          className={`btn btn-${props.btnMode} mx-2`}
+          className={`btn btn-${props.btnMode} mx-2 my-2`}
           onClick={handleLowerCase}
         >
           Convert to lowercase
         </button>
         <button
-          className={`btn btn-${props.btnMode} mx-2`}
+          className={`btn btn-${props.btnMode} mx-2 my-2`}
           onClick={handleClearCase}
         >
           Clear Text
         </button>
         <button
-          className={`btn btn-${props.btnMode} mx-2`}
+          className={`btn btn-${props.btnMode} mx-2 my-2`}
           onClick={handlefirstletter}
         >
           Capitalize

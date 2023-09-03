@@ -4,7 +4,7 @@ import Mybox from "./components/Mybox";
 import AboutUs from "./components/AboutUs";
 import React, { useState } from "react";
 import Alert from "./components/Alert";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, link } from "react-router-dom";
 
 function App() {
   const [mode, setMode] = useState("light"); //whether dark mode is enabled or not
@@ -84,12 +84,12 @@ function App() {
           greenToggleMode={greenToggleMode}
           redToggleMode={redToggleMode}
         />
-        <Alert alert={alert} />
+        <Alert alert={alert} mode={mode} />
         <Switch>
           <Route exact path="/aboutus">
-            <AboutUs />
+            <AboutUs mode={mode} />
           </Route>
-          <Route exact path="/mybox">
+          <Route exact path="/home">
             <div className="container my-3">
               <Mybox
                 heading="Enter the text to Analyze Below "
