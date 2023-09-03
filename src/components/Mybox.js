@@ -1,14 +1,6 @@
 import React, { useState } from "react";
 
 export default function (props) {
-  const countWords = (inputString) => {
-    var wordsArray = inputString.trim().split(/\s+/);
-    var wordCount = wordsArray.filter(function (word) {
-      return word !== "";
-    }).length;
-    return wordCount;
-  };
-
   const [text, settext] = useState("");
   const handleUpperCase = () => {
     // console.log("upper case was clicked");
@@ -72,24 +64,28 @@ export default function (props) {
         <button
           className={`btn btn-${props.btnMode} mx-2 my-2`}
           onClick={handleUpperCase}
+          disabled={text.length === 0}
         >
           Convert to uppercase
         </button>
         <button
           className={`btn btn-${props.btnMode} mx-2 my-2`}
           onClick={handleLowerCase}
+          disabled={text.length === 0}
         >
           Convert to lowercase
         </button>
         <button
           className={`btn btn-${props.btnMode} mx-2 my-2`}
           onClick={handleClearCase}
+          disabled={text.length === 0}
         >
           Clear Text
         </button>
         <button
           className={`btn btn-${props.btnMode} mx-2 my-2`}
           onClick={handlefirstletter}
+          disabled={text.length === 0}
         >
           Capitalize
         </button>
@@ -100,16 +96,28 @@ export default function (props) {
       >
         <h2>your summary</h2>
         <p>
-          <big>{countWords(text)} words</big>
+          <big>
+            {
+              text.split(" ").filter((element) => {
+                return element.length !== 0;
+              }).length
+            }
+            words
+          </big>
         </p>
         <p>
           <big>{text.length} characters</big>
         </p>
         <p>
-          <big>{text.split(" ").length * 0.008} minutes read</big>
+          <big>
+            {text.split(" ").filter((element) => {
+              return element.length !== 0;
+            }).length * 0.008}{" "}
+            minutes read
+          </big>
         </p>
         <h2>Preview</h2>
-        <p>{text === "" ? "Enter the text to preview" : text}</p>
+        <p>{text.length === 0 ? "Nothing to preview !" : text}</p>
       </div>
     </>
   );
