@@ -39,69 +39,59 @@ export default function Navbar(props) {
                 </Link>
               </li>
             </ul>
-            <form className="d-flex" role="search">
-              <input
-                className="form-control me-2"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-              />
-              <button className="btn btn-outline-success" type="submit">
-                Search
-              </button>
-            </form>
           </div>
         </div>
-        <div
-          className={`form-check form-switch text-${
-            props.mode === "light" ? "dark" : "light"
-          }`}
-        >
-          {/* this switch is for Dark mode */}
-          <input
-            className="form-check-input"
-            type="checkbox"
-            role="switch"
-            id="flexSwitchCheckDefault"
-            onClick={props.darkToggleMode}
-          />
-          <label className="form-check-label " htmlFor="flexSwitchCheckDefault">
-            dark
-          </label>
-        </div>
-        <div
-          className={`form-check form-switch text-${
-            props.mode === "light" ? "green" : "light"
-          }`}
-        >
-          {/* this switch is for green mode */}
-          <input
-            className="form-check-input"
-            type="checkbox"
-            role="switch"
-            id="flexSwitchCheckDefault"
-            onClick={props.greenToggleMode}
-          />
-          <label className="form-check-label " htmlFor="flexSwitchCheckDefault">
-            Green
-          </label>
-        </div>
-        <div
-          className={`form-check form-switch text-${
-            props.mode === "light" ? "red" : "light"
-          }`}
-        >
-          {/* this switch is for red mode */}
-          <input
-            className="form-check-input"
-            type="checkbox"
-            role="switch"
-            id="flexSwitchCheckDefault"
-            onClick={props.redToggleMode}
-          />
-          <label className="form-check-label " htmlFor="flexSwitchCheckDefault">
-            Red
-          </label>
+        <div className="d-flex">
+          <div
+            className="bg-primary rounded mx-2"
+            onClick={() => {
+              props.toggleMode("primary");
+            }} //on click does not need function call it only need function
+            style={{
+              height: "30px",
+              width: "40px",
+              cursor: "pointer",
+            }}
+          ></div>
+          <div
+            className="bg-danger rounded mx-2"
+            onClick={() => {
+              props.toggleMode("danger");
+            }} //on click does not need function call it only need function
+            style={{ height: "30px", width: "40px", cursor: "pointer" }}
+          ></div>
+          <div
+            className="bg-success rounded mx-2"
+            onClick={() => {
+              props.toggleMode("success");
+            }} //on click does not need function call it only need function
+            style={{ height: "30px", width: "40px", cursor: "pointer" }}
+          ></div>
+          <div
+            className="bg-warning rounded mx-2"
+            onClick={() => {
+              props.toggleMode("warning");
+            }} //on click does not need function call it only need function
+            style={{ height: "30px", width: "40px", cursor: "pointer" }}
+          ></div>
+          <div
+            className="bg-light rounded mx-2"
+            onClick={() => {
+              props.toggleMode("light");
+            }} //on click does not need function call it only need function
+            style={{
+              height: "30px",
+              width: "40px",
+              cursor: "pointer",
+            }}
+          ></div>
+          <div
+            className="bg-dark rounded mx-2"
+            onClick={() => {
+              props.toggleMode("dark");
+            }} //on click does not need function call it only need function
+            style={{ height: "30px", width: "40px", cursor: "pointer" }}
+          ></div>
         </div>
       </nav>
     </>
