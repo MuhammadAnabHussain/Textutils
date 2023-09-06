@@ -98,7 +98,7 @@ export default function (props) {
         <p>
           <big>
             {
-              text.split(" ").filter((element) => {
+              text.split(/\s+/).filter((element) => {
                 return element.length !== 0;
               }).length
             }
@@ -110,7 +110,7 @@ export default function (props) {
         </p>
         <p>
           <big>
-            {text.split(" ").filter((element) => {
+            {text.split(/\s+/).filter((element) => {
               return element.length !== 0;
             }).length * 0.008}{" "}
             minutes read
